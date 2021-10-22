@@ -3,3 +3,7 @@ https://coinmarketcap.com/
 https://www.youtube.com/watch?v=HqGlkACB3rg
 
 https://pythonrepo.com/tag/cryptocurrency
+
+https://towardsdatascience.com/python-markowitz-optimization-b5e1623060f5
+
+https://www.youtube.com/watch?v=ykHxllpCcQw
