@@ -52,9 +52,11 @@ if __name__ == "__main__":
 
     st.header('Variação Diária')
     data_rend_diarios = data_filtrada[options_tickers].pct_change()
+    data_rend_diarios = data_rend_diarios[1:]
     st.dataframe(data_rend_diarios)
 
     st.header('Retorno Acumulado')
     retorno_acumulado = (1 + data_rend_diarios).cumprod()
+    retorno_acumulado = retorno_acumulado[1:]
     st.dataframe(retorno_acumulado)
 
