@@ -1,6 +1,6 @@
 Selecionando os ativos
 
-Visualizar dados 1 ano ou 5 anos? Selecionar uma linha
+Visualizar dados 1 ano ou 5 anos? Selecionar uma linha - ok
 
 Rentabilidade diária, semanal, mensal ou anual? Selecionar por caixinha
 
@@ -9,9 +9,11 @@ Gráfico das moeadas?
 Gráfico de uma carteira das moedas?
 
 Sharp 
-Análise de correlação 
-Markowitz selecionando os ativos
-Com os percentuais de alocação para a carteira eficiente 
+Análise de correlação - ok
+Markowitz selecionando os ativos - ok
+Com os percentuais de alocação para a carteira eficiente - ok
+Criar uma barra que arrasta para escolher um ponto da fronteira com menos risco
+
 CAPM
 Betas mercado
 Betas em relação ao bitcoin
@@ -19,7 +21,7 @@ Betas em relação ao bitcoin
 
 Relatório acompanhamento carteira 
 
-Benqmarck = bitcoin
+Benchmarck = bitcoin
 
 Bitcoin x outras commodities petróleo etc
 Bitcoin X outros mercados
