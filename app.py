@@ -4,7 +4,6 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-#import pyfolio as pf
 import datetime as dt
 import numpy as np
 from src.python.markowitz import fronteira_eficiente
