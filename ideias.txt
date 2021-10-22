@@ -1,0 +1,31 @@
+Selecionando os ativos
+
+Visualizar dados 1 ano ou 5 anos? Selecionar uma linha
+
+Rentabilidade diária, semanal, mensal ou anual? Selecionar por caixinha
+
+Heatmap view
+Gráfico das moeadas?
+Gráfico de uma carteira das moedas?
+
+Sharp 
+Análise de correlação 
+Markowitz selecionando os ativos
+Com os percentuais de alocação para a carteira eficiente 
+CAPM
+Betas mercado
+Betas em relação ao bitcoin
+
+
+Relatório acompanhamento carteira 
+
+Benqmarck = bitcoin
+
+Bitcoin x outras commodities petróleo etc
+Bitcoin X outros mercados
+Correlação e betas
+
+botão para exportar para pdf
+botão para atualizar os dados
+dados salvos num csv
+
