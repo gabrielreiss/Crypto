@@ -2,7 +2,7 @@ conda create --name crypto --file requirements.txt
 
 conda activate cryto
 
-conda list -e > requirements.txt
+conda list -e > requirements2.txt
 
 pip install --upgrade pandas-datareader
 

@@ -31,18 +31,8 @@ botão para exportar para pdf
 botão para atualizar os dados
 dados salvos num csv
 
+Análise técnica
 
 
-parte técnica
-colocar num banco de dados
-colunas data, 
-        preço de fechamento, 
-        simbolo da moeda
-
-no app.py, cada nova moeda deverá estar numa nova coluna
-par não dar problema no resto do código
-
-a data ser o índice
 
 
-só ta pegando os valores de bitcoin
