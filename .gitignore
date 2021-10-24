@@ -1,0 +1,6 @@
+__pycache__
+*.db
+*.csv
+
+.vscode/
+.vscode/*

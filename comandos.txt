@@ -6,3 +6,4 @@ conda list -e > requirements.txt
 
 pip install --upgrade pandas-datareader
 
+pip freeze > requirements.txt

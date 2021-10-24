@@ -6,7 +6,10 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import datetime as dt
 import numpy as np
-from src.python.markowitz import fronteira_eficiente
+import sqlalchemy
+from src.python.modulo.markowitz import fronteira_eficiente
+from src.python.modulo.filtra_banco import filtra_banco
+from src.python.modulo.lista_ticker import lista_ticker
 
 warnings.filterwarnings('ignore')
 
@@ -16,8 +19,9 @@ DATA_DIR = os.path.join(BASE_DIR,'data')
 SQL_DIR = os.path.join(BASE_DIR, 'src', 'sql')
 PYTHON_DIR = os.path.join(BASE_DIR, 'src', 'python')
 
-#carrega os dados
-data = pd.read_csv(os.path.join(DATA_DIR, 'data.csv'),index_col="Date", infer_datetime_format= True, parse_dates=['Date'])
+str_conn = 'sqlite:///' + os.path.join(DATA_DIR, 'data.db') + '?check_same_thread=False'
+engine = sqlalchemy.create_engine(str_conn)
+conn = engine.connect()
 
 #main function
 if __name__ == "__main__":
@@ -25,14 +29,14 @@ if __name__ == "__main__":
 
     #filtra os dados por criptos
     st.sidebar.title("Parâmetros")
-    list_of_tickers = list(data.columns)
+    list_of_tickers = lista_ticker(conn)
     options_tickers = st.sidebar.multiselect("Lista de Criptos", list_of_tickers, default=['BTC', 'ETH', 'LTC', 'XRP', 'DASH', 'SC'])
 
     #filtra os dados pelo período
     periodo = st.sidebar.slider('Período analisado', 1, 5, value = 1)
     start = dt.datetime.now() - dt.timedelta(days=(365 * periodo))
     end = dt.datetime.now()
-    data_filtrada = data[options_tickers].loc[start:end]
+    data_filtrada = filtra_banco(options_tickers, start, end, conn)
 
     #Apresenta um resumo em tabelas
     st.header('Histórico de preços em Dólar')

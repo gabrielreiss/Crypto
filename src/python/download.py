@@ -5,9 +5,15 @@ import seaborn as sns
 import datetime as dt
 import os
 import pandas as pd
+import sqlalchemy
 
+BASE_DIR = '.'
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DATA_DIR = os.path.join(BASE_DIR, 'data')
+
+str_conn = 'sqlite:///' + os.path.join(DATA_DIR, 'data.db')
+engine = sqlalchemy.create_engine(str_conn)
+conn = engine.connect()
 
 currency = "USD"
 metric = "Close"
@@ -15,7 +21,10 @@ metric = "Close"
 start = dt.datetime(2016,1,1)
 end = dt.datetime.now()
 
-crypto = ['BTC', 'ETH', 'LTC', 'XRP', 'DASH', 'SC']
+df = pd.read_excel(os.path.join(DATA_DIR, 'simbolos.xls'))
+
+#crypto = ['BTC', 'ETH', 'LTC', 'XRP', 'DASH', 'SC']
+crypto = list(df['symbol'])
 colnames = []
 
 first = True
@@ -23,13 +32,13 @@ first = True
 for ticker in crypto:
     data = web.DataReader(f'{ticker}-{currency}', "yahoo", start, end)
     if first:
+        print(f'Adicionando a moeda: {ticker}')
         combined = data[[metric]].copy()
-        colnames.append(ticker)
-        combined.columns = colnames
+        combined['ticker'] = ticker
+        combined.to_sql('historico', conn, if_exists = 'replace')
         first = False
     else:
-        combined = combined.join(data[metric])
-        colnames.append(ticker)
-        combined.columns = colnames
-
-combined.to_csv(os.path.join(DATA_DIR,'data.csv'))
+        print(f'Adicionando a moeda: {ticker}')
+        combined = data[[metric]].copy()
+        combined['ticker'] = ticker
+        combined.to_sql('historico', conn, if_exists = 'append')
