@@ -62,6 +62,7 @@ parso==0.7.0
 pathtools==0.1.2
 pickleshare==0.7.5
 Pillow==7.2.0
+plotly==5.3.1
 prometheus-client==0.8.0
 prompt-toolkit==3.0.5
 protobuf==3.12.2
@@ -87,6 +88,7 @@ soupsieve==2.0.1
 SQLAlchemy==1.4.22
 sqlparse==0.4.2
 streamlit==1.1.0
+tenacity==8.0.1
 terminado==0.8.3
 testpath==0.4.4
 threadpoolctl==2.1.0

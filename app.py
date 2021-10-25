@@ -10,6 +10,10 @@ import sqlalchemy
 from src.python.modulo.markowitz import fronteira_eficiente
 from src.python.modulo.filtra_banco import filtra_banco
 from src.python.modulo.lista_ticker import lista_ticker
+from src.python.modulo.time_series_plot import time_series_plot
+from src.python.modulo.download_data import download_csv
+from src.python.modulo.mapa_rentabilidade import heatmap_var_mensal
+import plotly.express as px
 
 warnings.filterwarnings('ignore')
 
@@ -40,19 +44,17 @@ if __name__ == "__main__":
 
     #Apresenta um resumo em tabelas
     st.header('Histórico de preços em Dólar')
+    download_csv(data_filtrada)
     st.dataframe(data_filtrada)
 
-    #Imprime gráfico dos valores
     for ticket in options_tickers:
-        fig = plt.figure(figsize=(12,5))
-        ax = sns.lineplot(data=data_filtrada, x=data_filtrada.index, y= ticket,palette="tab10", linewidth=2.5)
-        ax.set(xlabel='Ano', ylabel='USD')
-        plt.title(f'Evolução do {ticket}')
-        st.pyplot(fig)
+        time_series_plot(data_filtrada, ticket, f'Evolução do {ticket}')
+        #st.experimental_show(fig)
 
     st.header('Variação Diária')
     data_rend_diarios = data_filtrada[options_tickers].pct_change()
     data_rend_diarios = data_rend_diarios[1:]
+    download_csv(data_rend_diarios)
     st.dataframe(data_rend_diarios)
 
     #matriz de correlação
@@ -62,12 +64,15 @@ if __name__ == "__main__":
     sns.heatmap(correlação, annot=True, cmap="coolwarm")
     st.pyplot(fig)
 
-
     st.header('Retorno Acumulado')
     retorno_acumulado = (1 + data_rend_diarios).cumprod()
     retorno_acumulado = retorno_acumulado[1:]
+    download_csv(retorno_acumulado)
     st.dataframe(retorno_acumulado)
 
+    #Mapa de calor da rentabilidade mensal
+    st.header('Mapa de calor da rentabilidade mensal')
+    heatmap_var_mensal(data_filtrada, options_tickers)
 
     st.title("Fronteira Eficiente de Markowitz")
     sharpe_maximo, pesos, ret_arr, vol_arr, sharpe_arr, max_sr_ret, max_sr_vol = fronteira_eficiente(data_rend_diarios)

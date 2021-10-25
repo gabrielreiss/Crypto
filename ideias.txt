@@ -29,9 +29,13 @@ Correlação e betas
 
 botão para exportar para pdf
 botão para atualizar os dados
-dados salvos num csv
+dados salvos num csv - ok
 
 Análise técnica
+
+INDICE SORTINE
+
+FAZER um gráfico rentabilidade, cada coluna mês, e cada ano linha - ok
 
 
 

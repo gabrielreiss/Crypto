@@ -68,6 +68,7 @@ pathtools=0.1.2=pypi_0
 pickleshare=0.7.5=pypi_0
 pillow=7.2.0=pypi_0
 pip=21.0.1=pypi_0
+plotly=5.3.1=pypi_0
 prometheus-client=0.8.0=pypi_0
 prompt-toolkit=3.0.5=pypi_0
 protobuf=3.12.2=pypi_0
@@ -99,6 +100,7 @@ sqlalchemy=1.4.22=py38h2bbff1b_0
 sqlite=3.36.0=h2bbff1b_0
 sqlparse=0.4.2=pypi_0
 streamlit=1.1.0=pypi_0
+tenacity=8.0.1=pypi_0
 terminado=0.8.3=pypi_0
 testpath=0.4.4=pypi_0
 threadpoolctl=2.1.0=pypi_0
