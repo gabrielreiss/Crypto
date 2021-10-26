@@ -7,3 +7,10 @@ https://pythonrepo.com/tag/cryptocurrency
 https://towardsdatascience.com/python-markowitz-optimization-b5e1623060f5
 
 https://www.youtube.com/watch?v=ykHxllpCcQw
+
+https://medium.com/python-data/capm-analysis-calculating-stock-beta-as-a-regression-in-python-c82d189db536
+
+https://tc.com.br/tc-school/fundos-de-investimentos/risco-retorno-teoria-das-carteiras
+
+https://tc.com.br/tc-school/quant-investimentos/python-capm
+

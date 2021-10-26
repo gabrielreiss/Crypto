@@ -60,6 +60,7 @@ pandas-datareader==0.10.0
 pandocfilters==1.4.2
 parso==0.7.0
 pathtools==0.1.2
+patsy==0.5.2
 pickleshare==0.7.5
 Pillow==7.2.0
 plotly==5.3.1
@@ -88,6 +89,7 @@ soupsieve==2.0.1
 SQLAlchemy==1.4.22
 sqlparse==0.4.2
 streamlit==1.1.0
+statsmodels==0.13.0
 tenacity==8.0.1
 terminado==0.8.3
 testpath==0.4.4
