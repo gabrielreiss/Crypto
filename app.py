@@ -60,8 +60,10 @@ if __name__ == "__main__":
     #matriz de correlação
     st.subheader('Matriz de Correlação')
     correlação = data_rend_diarios.corr(method = "pearson")
+    mask = np.zeros_like(correlação, dtype=np.bool)
+    mask[np.triu_indices_from(mask)] = True
     fig = plt.figure(figsize=(12,5))
-    sns.heatmap(correlação, annot=True, cmap="coolwarm")
+    sns.heatmap(correlação, annot=True, cmap="coolwarm", fmt = '.2f', mask=mask, center = 0, square=True, linewidths=.5)
     st.pyplot(fig)
 
     st.header('Retorno Acumulado')
