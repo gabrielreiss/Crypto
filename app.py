@@ -36,7 +36,7 @@ if __name__ == "__main__":
     #filtra os dados por criptos
     st.sidebar.title("Parâmetros")
     list_of_tickers = lista_ticker(conn)
-    options_tickers = st.sidebar.multiselect("Lista de Criptos", list_of_tickers, default=['BTC', 'ETH', 'LTC', 'XRP', 'DASH', 'SC'])
+    options_tickers = st.sidebar.multiselect("Lista de Criptos", list_of_tickers, default=['ETH', 'ADA'])
 
     #filtra os dados pelo período
     periodo = st.sidebar.slider('Período analisado', 1, 5, value = 1)
