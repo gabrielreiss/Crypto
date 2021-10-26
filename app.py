@@ -47,7 +47,7 @@ if __name__ == "__main__":
     #Definir taxa selic
     selic = st.sidebar.number_input('Insere o valor da taxa selic atual', value = 6.25)
     ref_mercado = st.sidebar.multiselect("Crypto de referência", list_of_tickers, default=['BTC'])
-    print(ref_mercado)
+    data_ref_mercado = filtra_banco(ref_mercado, start, end, conn)
 
     #Apresenta um resumo em tabelas
     st.header('Histórico de preços em Dólar')
@@ -101,5 +101,5 @@ if __name__ == "__main__":
 
     st.header("CAPM")
     st.text_area(label = "Explicação", value = "O modelo CAPM (Capital Asset Pricing Model) é utilizado para estimar o retorno esperado teórico de um ativo, ou melhor, a taxa de retorno esperada (custo de capital) que é apropriada para um determinado ativo. Se o ativo possui um beta maior do que 1, significando que ele possui uma maior sensibilidade às variações do mercado. De acordo com o CAPM, se o alfa de qualquer ativo ou fundo for maior que zero, significa que obteve um retorno acima do esperado. Do contrário, o ativo teve uma performance abaixo das expectativas.")
-    tabela_capm = CAPM(data_filtrada, options_tickers, ref_mercado, selic)
+    tabela_capm = CAPM(data_filtrada, options_tickers, data_ref_mercado, ref_mercado, selic)
     st.dataframe(tabela_capm)
