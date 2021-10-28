@@ -1,3 +1,4 @@
+import streamlit as st
 import os
 import pandas as pd
 from src.python.modulo.apply_sql_template import apply_sql_template

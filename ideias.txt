@@ -45,3 +45,4 @@ somar +1 na rentabilidade diária, fazer o pivot com prod, depois tirar o +1 da 
 gráfico de candle
 https://plotly.com/python/candlestick-charts/
 
+melhorar a performance

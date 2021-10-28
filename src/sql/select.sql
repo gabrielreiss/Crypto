@@ -12,3 +12,8 @@ FROM historico
 
 group by ticker
 ;
+
+select *
+from historico
+limit 10
+;
