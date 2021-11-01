@@ -7,3 +7,5 @@ conda list -e > requirements2.txt
 pip install --upgrade pandas-datareader
 
 pip freeze > requirements.txt
+
+jupyter notebook
