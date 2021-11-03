@@ -48,6 +48,7 @@ def rsi_tabela(options_tickers_uni, conn):
         {
             'RSI(5)': [ultimo_rsi(df, 5),rsi_acao(df, 5)],
             'RSI(10)': [ultimo_rsi(df, 10),rsi_acao(df, 10)],
+            'RSI(14)': [ultimo_rsi(df, 14),rsi_acao(df, 14)],
             'RSI(20)': [ultimo_rsi(df, 20),rsi_acao(df, 20)],
             'RSI(50)': [ultimo_rsi(df, 50),rsi_acao(df, 50)],
             'RSI(100)': [ultimo_rsi(df, 100),rsi_acao(df, 100)],

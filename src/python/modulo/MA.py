@@ -35,6 +35,7 @@ def MA_table(options_tickers, conn, preco_atual):
         data = {
             'MA(5)': acao(5),
             'MA(10)': acao(10),
+            'MA(14)': acao(14),
             'MA(20)': acao(20),
             'MA(50)': acao(50),
             'MA(100)': acao(100),
