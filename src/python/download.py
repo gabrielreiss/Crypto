@@ -34,16 +34,13 @@ first = True
 for ticker in crypto:
     data = yf.download(f'{ticker}-{currency}', start = start, end = end)
     data.columns = data.columns.droplevel('Ticker')
+    data.reset_index(level=None, drop=True, inplace=True)
+    data['Date'] = data['Date'].dt.strftime('%Y-%m-%d')
+    data['ticker'] = ticker
     if first:
         print(f'Adicionando a moeda: {ticker}')
-        combined = data.copy()
-        combined['Date'] = df['Date'].dt.strftime('%Y-%m-%d')
-        combined['ticker'] = ticker
-        combined.to_sql('historico', conn, if_exists = 'replace')
+        data.to_sql('historico', conn, if_exists = 'replace', index = False)
         first = False
     else:
         print(f'Adicionando a moeda: {ticker}')
-        combined = data.copy()
-        combined['Date'] = df['Date'].dt.strftime('%Y-%m-%d')
-        combined['ticker'] = ticker
-        combined.to_sql('historico', conn, if_exists = 'append')
+        data.to_sql('historico', conn, if_exists = 'append', index = False)
