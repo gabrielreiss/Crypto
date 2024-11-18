@@ -34,7 +34,7 @@ first = True
 for ticker in crypto:
     data = yf.download(f'{ticker}-{currency}', start = start, end = end)
     data.columns = data.columns.droplevel('Ticker')
-    data.reset_index(level=None, drop=True, inplace=True)
+    data.reset_index(level=None, drop=False, inplace=True)
     data['Date'] = data['Date'].dt.strftime('%Y-%m-%d')
     data['ticker'] = ticker
     if first:
