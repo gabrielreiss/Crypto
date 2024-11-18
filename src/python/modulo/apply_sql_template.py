@@ -1,4 +1,6 @@
-from jinjasql import JinjaSql
+#from jinjasql import JinjaSql
+from jinja2 import Template
+from markupsafe import Markup
 from six import string_types
 from copy import deepcopy
 
@@ -27,6 +29,10 @@ def apply_sql_template(template, parameters):
     (dict) and return
     the final SQL.
     '''
-    j = JinjaSql(param_style='pyformat')
-    query, bind_params = j.prepare_query(template, parameters)
-    return get_sql_from_template(query, bind_params)
+    #j = JinjaSql(param_style='pyformat')
+    #query, bind_params = j.prepare_query(template, parameters)
+    #return get_sql_from_template(query, bind_params)
+    
+def apply_sql_template(query_template, parameters):
+    template = Template(query_template)
+    return template.render(parameters)

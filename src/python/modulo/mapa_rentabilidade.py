@@ -14,7 +14,7 @@ def heatmap_var_mensal(data_filtrada, options_tickers):
         data_rend_diarios['mes'] = list(data_rend_diarios.index.month)
 
         
-        #aqui deveria ser cumprod mas como não deu certo, coloquei soma, fica um valor aproximado
+        #aqui deveria ser cumprod mas como não deu certo, coloquei prod, fica um valor aproximado
         tabelao = pd.pivot_table(   data_rend_diarios, 
                                     values = moeda, 
                                     #aggfunc = 'cumprod',

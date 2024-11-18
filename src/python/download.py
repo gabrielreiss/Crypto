@@ -37,11 +37,13 @@ for ticker in crypto:
     if first:
         print(f'Adicionando a moeda: {ticker}')
         combined = data.copy()
+        combined['Date'] = df['Date'].dt.strftime('%Y-%m-%d')
         combined['ticker'] = ticker
         combined.to_sql('historico', conn, if_exists = 'replace')
         first = False
     else:
         print(f'Adicionando a moeda: {ticker}')
         combined = data.copy()
+        combined['Date'] = df['Date'].dt.strftime('%Y-%m-%d')
         combined['ticker'] = ticker
         combined.to_sql('historico', conn, if_exists = 'append')
