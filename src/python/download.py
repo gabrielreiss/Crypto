@@ -23,7 +23,8 @@ metric = "Close"
 end = dt.datetime.now()
 start = dt.datetime.now() - dt.timedelta(365.25*5,0,0)
 
-df = pd.read_excel(os.path.join(DATA_DIR, 'simbolos.xls'))
+#df = pd.read_excel(os.path.join(DATA_DIR, 'simbolos.xls'))
+df = pd.read_csv(os.path.join(DATA_DIR, 'simbolos2.csv'), header=0)
 
 #crypto = ['BTC', 'ETH', 'LTC', 'XRP', 'DASH', 'SC']
 crypto = list(df['symbol'])
@@ -32,15 +33,18 @@ colnames = []
 first = True
 #%%
 for ticker in crypto:
-    data = yf.download(f'{ticker}-{currency}', start = start, end = end)
-    data.columns = data.columns.droplevel('Ticker')
-    data.reset_index(level=None, drop=False, inplace=True)
-    data['Date'] = data['Date'].dt.strftime('%Y-%m-%d')
-    data['ticker'] = ticker
-    if first:
-        print(f'Adicionando a moeda: {ticker}')
-        data.to_sql('historico', conn, if_exists = 'replace', index = False)
-        first = False
-    else:
-        print(f'Adicionando a moeda: {ticker}')
-        data.to_sql('historico', conn, if_exists = 'append', index = False)
+    try:
+        data = yf.download(f'{ticker}-{currency}', start = start, end = end)
+        data.columns = data.columns.droplevel('Ticker')
+        data.reset_index(level=None, drop=False, inplace=True)
+        data['Date'] = data['Date'].dt.strftime('%Y-%m-%d')
+        data['ticker'] = ticker
+        if first:
+            print(f'Adicionando a moeda: {ticker}')
+            data.to_sql('historico', conn, if_exists = 'replace', index = False)
+            first = False
+        else:
+            print(f'Adicionando a moeda: {ticker}')
+            data.to_sql('historico', conn, if_exists = 'append', index = False)
+    except Exception as e:
+        print(e)

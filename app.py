@@ -42,8 +42,8 @@ if __name__ == "__main__":
 
     #filtra os dados pelo período
     periodo = st.sidebar.slider('Período analisado (em meses):', 1, 60, value = 12)
-    start = dt.datetime.now() - dt.timedelta(days=(30 * periodo))
-    end = dt.datetime.now()
+    start = (dt.datetime.now() - dt.timedelta(days=(30 * periodo))).strftime('%Y-%m-%d')
+    end = dt.datetime.now().strftime('%Y-%m-%d')
     data_filtrada = filtra_banco(options_tickers, start, end, conn)
 
     #Definir taxa selic

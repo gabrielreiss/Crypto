@@ -17,9 +17,9 @@ def filtra_banco(ticker, start, end, conn):
     for ticker1 in ticker:
         
         params = {
-            'ticker': ticker1,
-            'start': start,
-            'end': end
+            'ticker': f'"{ticker1}"',
+            'start': f'"{start}"',
+            'end': f'"{end}"'
         }
 
         with open( os.path.join(SQL_DIR, 'select_dados.sql'), 'rb') as query_file:
@@ -28,7 +28,8 @@ def filtra_banco(ticker, start, end, conn):
         query = apply_sql_template(query, params)
 
         data = pd.read_sql_query(query, conn, index_col="Date", parse_dates=['Date'])
-        del data['ticker']
+        #del data['ticker']
+        #data.columns = [ticker1]
         data.columns = [ticker1]
         #print(data.head())
 
